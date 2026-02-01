@@ -975,8 +975,8 @@ if _info and _info.get('model_name'):
         pass
 
 # --- API keys configuration ---
-VT_API_KEY_DEFAULT = "8817dde3e7001a3661f710bd307a3183c58f9d8f17ae961b0807f8fb0b3c265b" 
-GSB_API_KEY_DEFAULT = "AIzaSyA7VvwciB-dOrJDLQDVIp_fgZoMKLytK2I" 
+VT_API_KEY_DEFAULT = "" # Enter your VirusTotal API here or into the site (Optional)
+GSB_API_KEY_DEFAULT = "" # Enter your google safe browsing API here or into the site (Optional)
 TRUSTED_DOMAINS = {
     'google.com','youtube.com','microsoft.com','github.com','amazon.com','facebook.com'
 }
@@ -1489,4 +1489,5 @@ st.markdown("""
     </p>
     <p style='font-size:10px; color:#3a414a; margin-top:8px;'>v1.0 • AI Cyber Fraud Detector • Powered by scikit-learn & Streamlit</p>
 </div>
+
 """, unsafe_allow_html=True)
