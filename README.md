@@ -1,8 +1,8 @@
-# 🛡️ CyberKavach-AI  
+# 🛡️ SafeShield URL Checker  
 **AI-Powered Cyber Fraud & Phishing Detection System**
 
-CyberKavach-AI is an intelligent cybersecurity application that detects **fraudulent URLs and scam messages** using a hybrid approach of **Machine Learning, rule-based heuristics, and external threat-intelligence APIs**.  
-The system is designed for **real-time analysis** with a professional Streamlit web interface.
+The SafeShield URL Checker detects **fraudulent URLs and scam messages** using a hybrid approach of **Machine Learning, rule-based heuristics, and external threat-intelligence APIs**.  
+These files provide SafeShield's URL model, feature extraction, normalization, and rule-based detection logic. The runtime API and interface live in `backend` and `frontend`.
 
 ---
 
@@ -35,7 +35,6 @@ The system is designed for **real-time analysis** with a professional Streamlit 
 ## 🧠 Tech Stack
 
 - **Python 3.10+**
-- **Streamlit** – Web Interface  
 - **Scikit-learn** – Machine Learning  
 - **Pandas & NumPy** – Data processing  
 - **Pickle** – Model storage  
@@ -47,7 +46,6 @@ The system is designed for **real-time analysis** with a professional Streamlit 
 
 cyberkavach-AI/
 │
-├── app.py # Main Streamlit application
 ├── train_model.py # Model training pipeline
 │
 ├── model/
@@ -95,11 +93,15 @@ Calibrate probability scores
 
 Save trained models to the model/ directory
 
-▶️ Run the Application
-streamlit run app.py
-Open in browser:
+▶️ Run SafeShield
+Start the integrated application from the repository root:
 
-http://localhost:8501
+```text
+Terminal 1: .venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+Terminal 2: cd frontend && npm run dev
+```
+
+Open `http://localhost:3000`, select **URL Scanner**, and submit a URL. The backend uses the model and utility files in this directory through `POST /analyze/url`.
 🔑 API Keys (Optional)
 You can enable external security checks using API keys.
 
@@ -107,7 +109,7 @@ VirusTotal
 export VT_API_KEY="your_api_key_here"
 Google Safe Browsing
 export GSB_API_KEY="your_api_key_here"
-You may also enter API keys directly from the Streamlit sidebar.
+External reputation providers are not required for local URL analysis.
 
 ⚠️ Never commit API keys to GitHub
 

@@ -18,7 +18,7 @@ def normalize_url(url: str) -> dict:
 
     # Ensure scheme
     if '://' not in original:
-        original = 'http://' + original
+        original = 'https://' + original
 
     parsed = urlparse(original)
 

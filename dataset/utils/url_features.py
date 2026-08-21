@@ -1,4 +1,8 @@
 from .url_normalize import normalize_url
+from pathlib import Path
+
+
+DATASET_DIR = Path(__file__).resolve().parents[1]
 
 
 def extract_url_features(url):
@@ -56,7 +60,7 @@ def extract_url_features(url):
         if '_WHITELIST' not in globals():
             _WHITELIST = set()
             try:
-                with open('dataset/whitelist.txt', 'r', encoding='utf-8') as fh:
+                with open(DATASET_DIR / 'whitelist.txt', 'r', encoding='utf-8') as fh:
                     for line in fh:
                         _WHITELIST.add(line.strip().lower())
             except Exception:

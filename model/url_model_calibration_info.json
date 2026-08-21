@@ -1,9 +1,9 @@
 {
-  "brier_score": 0.0019818663802122307,
-  "roc_auc": 0.9986475384424603,
-  "recommended_threshold": 0.5,
-  "original_recommended_threshold": 0.12,
-  "threshold_clamped": true,
+  "brier_score": 0.010122172115441587,
+  "roc_auc": 0.9987985650365288,
+  "recommended_threshold": 0.99,
+  "original_recommended_threshold": 0.99,
+  "threshold_clamped": false,
   "calibrated": false,
   "model_name": "hgb"
 }

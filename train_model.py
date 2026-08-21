@@ -16,8 +16,8 @@ from dataset.utils.text_clean import clean_text
 from dataset.utils.url_features import extract_url_features
 
 # Load datasets
-msg_data = pd.read_csv("dataset/messages.csv")
-url_data = pd.read_csv("dataset/urls.csv")
+msg_data = pd.read_csv("C:\\GitHub\\Safeshield\\url_checker\\dataset\\messages.csv")
+url_data = pd.read_csv("C:\\GitHub\\Safeshield\\url_checker\\dataset\\urls.csv")
 
 # -------- Message Model --------
 print("Training Message Fraud Detection Model...")
@@ -44,8 +44,8 @@ if X_text.shape[0] > 2:
     cv_scores = cross_val_score(text_model, X_text, y_text, cv=min(3, X_text.shape[0]))
     print(f"Text Model Cross-validation Score: {cv_scores.mean():.3f} (+/- {cv_scores.std():.3f})")
 
-pickle.dump(text_model, open("model/text_model.pkl", "wb"))
-pickle.dump(vectorizer, open("model/vectorizer.pkl", "wb"))
+pickle.dump(text_model, open("C:\\GitHub\\Safeshield\\url_checker\\model\\text_model.pkl", "wb"))
+pickle.dump(vectorizer, open("C:\\GitHub\\Safeshield\\url_checker\\model\\vectorizer.pkl", "wb"))
 print("✓ Message model trained and saved")
 
 # -------- URL Model --------
@@ -289,7 +289,7 @@ if best_model is None:
     print("No candidate succeeded; saved default GradientBoosting model")
 else:
     # Save selected model and optionally a lightweight alias for faster inference
-    pickle.dump(best_model, open("model/url_model.pkl", "wb"))
+    pickle.dump(best_model, open("model/url_model_calibrated.pkl", "wb"))
     if best_name in ('logreg', 'hgb'):
         pickle.dump(best_model, open("model/url_model_light.pkl", "wb"))
 
